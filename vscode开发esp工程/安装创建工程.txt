@@ -1,0 +1,45 @@
+# vscode安装esp-dif检测环境一直失败，从官方安装的esp-idf-tools
+
+安装路径：C:\Espressif
+打开终端执行进入esp环境
+C:\Espressif\frameworks\esp-idf-v5.5.4\export.bat
+idf.py build
+
+创建工程指令
+D:
+cd code
+idf.py create-project my_app
+cd my_app
+idf.py build
+code .即可打开工程
+
+
+配置VSCODE
+在VS Code里按 Ctrl+Shift+P，输入 Python: Select Interpreter。
+选择 “Enter interpreter path”，然后点击 “Find”。
+浏览到 C:\Espressif\python_env\idf5.5_py3.11_env（具体版本号可能略有不同，找名字里带idf的文件夹），选中里面的 python.exe。
+
+然后在VSCODE终端执行 要离开虚拟环境 deactivate 和conda环境 conda deactivate，
+C:\Espressif\frameworks\esp-idf-v5.5.4\export.bat
+idf.py reconfigure
+idf.py set-target esp32 如果用其他芯片则改成esp32s3
+idf.py build
+
+Ctrl+Shift+P 输入Reload Window
+
+
+# 如果文件路径还是找不到 在.vocde下创建一个c_cpp_properties.josn  并更改settings.json内容 由deepseek生成即可
+
+常用指令
+idf.py build	编译项目（增量编译，只编译修改过的文件）
+idf.py clean	清理编译产生的中间文件（保留配置）
+idf.py fullclean	完全清理所有编译文件（包括配置）
+idf.py reconfigure	重新生成 CMake 配置（修改了组件后执行）
+idf.py build -j8	使用 8 个线程并行编译，速度更快
+idf.py flash	编译并烧录到开发板
+idf.py monitor	打开串口监视器查看日志
+
+
+idf.py -p COM9 flash 进行烧录
+idf.py -p COM9 monitor 进行查看板子运行打印的日志
+idf.py -p COM9 flash monitor 烧录并回显打印

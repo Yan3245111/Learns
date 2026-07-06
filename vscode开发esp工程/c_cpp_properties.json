@@ -1,0 +1,52 @@
+{
+    "configurations": [
+        {
+            "name": "ESP-IDF",
+            "includePath": [
+                "${workspaceFolder}",
+                "${workspaceFolder}/**",
+                "${workspaceFolder}/main",
+                "${workspaceFolder}/main/**",
+                "${workspaceFolder}/build/config",
+                "${workspaceFolder}/build/config/**",
+                "C:/Espressif/frameworks/esp-idf-v5.5.4/components",
+                "C:/Espressif/frameworks/esp-idf-v5.5.4/components/**",
+                "C:/Espressif/frameworks/esp-idf-v5.5.4/components/freertos/FreeRTOS-Kernel/include",
+                "C:/Espressif/frameworks/esp-idf-v5.5.4/components/freertos/FreeRTOS-Kernel/include/**",
+                "C:/Espressif/frameworks/esp-idf-v5.5.4/components/freertos/config/include",
+                "C:/Espressif/frameworks/esp-idf-v5.5.4/components/freertos/config/include/**",
+                "C:/Espressif/frameworks/esp-idf-v5.5.4/components/esp_common/include",
+                "C:/Espressif/frameworks/esp-idf-v5.5.4/components/esp_common/include/**",
+                "C:/Espressif/frameworks/esp-idf-v5.5.4/components/esp_rom/include",
+                "C:/Espressif/frameworks/esp-idf-v5.5.4/components/esp_rom/include/**",
+                "C:/Espressif/frameworks/esp-idf-v5.5.4/components/esp_system/include",
+                "C:/Espressif/frameworks/esp-idf-v5.5.4/components/esp_system/include/**",
+                "C:/Espressif/frameworks/esp-idf-v5.5.4/components/esp_hw_support/include",
+                "C:/Espressif/frameworks/esp-idf-v5.5.4/components/esp_hw_support/include/**",
+                "C:/Espressif/frameworks/esp-idf-v5.5.4/components/newlib/platform_include",
+                "C:/Espressif/frameworks/esp-idf-v5.5.4/components/newlib/platform_include/**",
+                "C:/Espressif/frameworks/esp-idf-v5.5.4/components/driver/deprecated/driver",
+                "C:/Espressif/frameworks/esp-idf-v5.5.4/components/esp_timer/include",
+                "C:/Espressif/frameworks/esp-idf-v5.5.4/components/esp_timer/include/**",
+                "C:/Espressif/frameworks/esp-idf-v5.5.4/components/soc/esp32/include",
+                "C:/Espressif/frameworks/esp-idf-v5.5.4/components/soc/esp32/include/**",
+                "C:/Espressif/tools/xtensa-esp-elf/esp-14.2.0_20260121/xtensa-esp-elf/include",
+                "C:/Espressif/tools/xtensa-esp-elf/esp-14.2.0_20260121/xtensa-esp-elf/include/**",
+                "C:/Espressif/tools/xtensa-esp-elf/esp-14.2.0_20260121/xtensa-esp-elf/lib/gcc/xtensa-esp-elf/14.2.0/include",
+                "C:/Espressif/tools/xtensa-esp-elf/esp-14.2.0_20260121/xtensa-esp-elf/lib/gcc/xtensa-esp-elf/14.2.0/include/**"
+            ],
+            "defines": [
+                "ESP_PLATFORM",
+                "IDF_VER=v5.5.4",
+                "ESP32",
+                "_GNU_SOURCE"
+            ],
+            "compilerPath": "C:/Espressif/tools/xtensa-esp-elf/esp-14.2.0_20260121/xtensa-esp-elf/bin/xtensa-esp32s3-elf-g++.exe",
+            "cStandard": "c17",
+            "cppStandard": "c++17",
+            "intelliSenseMode": "gcc-x64",
+            "compileCommands": "${workspaceFolder}/build/compile_commands.json"
+        }
+    ],
+    "version": 4
+}

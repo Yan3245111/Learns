@@ -1,0 +1,16 @@
+{
+    "idf.currentSetup": "C:\\Espressif\\frameworks\\esp-idf-v5.5.4",
+    "C_Cpp.default.configurationProvider": "ms-vscode.cmake-tools",
+    "C_Cpp.errorSquiggles": "enabled",
+    "C_Cpp.intelliSenseEngine": "default",
+    "C_Cpp.codeAnalysis.enable": false,
+    "C_Cpp.codeAnalysis.runAutomatically": false,
+    "C_Cpp.default.includePath": [
+        "${workspaceFolder}/**",
+        "${workspaceFolder}/build/config/**"
+    ],
+    "files.associations": {
+        "*.c": "c",
+        "*.h": "c"
+    }
+}

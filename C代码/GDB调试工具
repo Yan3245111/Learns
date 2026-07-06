@@ -1,0 +1,67 @@
+GDB调试需要编译时添加-g选项
+gcc -g -o myprogram myprogram.c
+
+
+启动GDB，进入后会显示GDB的命令提示符  sss  (gbd)
+gbd ./myprogram
+
+
+运行程序， 如果有参数，则添加命令参数
+run
+run arg1, arg2
+
+
+程序运行时，打断点
+break main  # 在 main 函数停下
+break 10    # 在第 10 行代码停下
+break myfunction  # 在 myfunction() 停下
+
+
+单步执行
+next
+
+
+进入函数内部
+step
+
+
+查看变量
+print x  # 查看变量 x 的值
+print myarray[0]  # 查看数组
+print mystruct  # 查看结构体
+
+
+继续运行
+continue
+
+
+程序崩溃，可以用backtrace找到代码位置
+backtrace
+
+
+测试用例：
+#include <stdio.h>
+
+void test_function(int x) {
+    int y = x * 2;
+    printf("y = %d\n", y);
+}
+
+int main() {
+    int a = 10;
+    test_function(a);
+    return 0;
+}
+
+
+调试步骤：
+gcc -g -o test test.c  # 编译
+gdb ./test  # 启动 GDB
+
+
+(gdb) break test_function  # 在 test_function() 设断点
+(gdb) run  # 运行程序
+(gdb) print x  # 查看 x 的值
+(gdb) step  # 进入函数
+(gdb) next  # 执行下一行
+(gdb) continue  # 继续运行
