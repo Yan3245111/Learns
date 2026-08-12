@@ -17,7 +17,7 @@ code .即可打开工程
 配置VSCODE
 在VS Code里按 Ctrl+Shift+P，输入 Python: Select Interpreter。
 选择 “Enter interpreter path”，然后点击 “Find”。
-浏览到 C:\Espressif\python_env\idf5.5_py3.11_env（具体版本号可能略有不同，找名字里带idf的文件夹），选中里面的 python.exe。
+浏览到 C:\Espressif\python_env\idf5.5_py3.11_env\Scripts（具体版本号可能略有不同，找名字里带idf的文件夹），选中里面的 python.exe。
 
 然后在VSCODE终端执行 要离开虚拟环境 deactivate 和conda环境 conda deactivate，
 C:\Espressif\frameworks\esp-idf-v5.5.4\export.bat
@@ -27,8 +27,6 @@ idf.py build
 
 Ctrl+Shift+P 输入Reload Window
 
-
-# 如果文件路径还是找不到 在.vocde下创建一个c_cpp_properties.josn  并更改settings.json内容 由deepseek生成即可
 
 常用指令
 idf.py build	编译项目（增量编译，只编译修改过的文件）
@@ -43,3 +41,54 @@ idf.py monitor	打开串口监视器查看日志
 idf.py -p COM9 flash 进行烧录
 idf.py -p COM9 monitor 进行查看板子运行打印的日志
 idf.py -p COM9 flash monitor 烧录并回显打印
+
+
+在vscode创建工程：因为vscode自动install环境失败，所以手动下载官方idf后指定环境
+Ctrl + shift + p：ESP-IDF: Select Current ESP-IDF Version
+Ctrl + shift + p: ESP-IDF: Create New Empty Project 
+输入工程名字 选择文件夹 右下角提醒铃铛点击 有一个已创建ESP-IDF项目 选择打开即可
+
+终端执行
+ C:\Espressif\frameworks\esp-idf-v5.5.4-3\install.bat # 执行一次就行
+ C:\Espressif\frameworks\esp-idf-v5.5.4-3\export.bat
+ C:\Espressif\frameworks\esp-idf-v5.5.4-3\export.ps1
+  idf.py --version 查看是否正常
+ 切换到工程文件下
+ idf.py set-target esp32s3
+ 然后进入到自己工程文件夹下 idf.py build 无错误即可成功
+
+
+添加新的c和h模块文件
+1. main文件夹同级目录 新建文件夹
+在新建问价夹下新建c/h文件以及CMakeLists.txt
+目录结构如下图
+-main
+    -main.c
+    -CMakeLists.txt
+-NewFloder
+    -new.c
+    -new.h
+    -CMakeLists.txt
+CMakeLists.txt
+
+2. 更改新建CMakeLists.txt
+idf_component_register(SRCS "new.c" 
+                    INCLUDE_DIRS ".")
+
+3. 更改根目录下的CMakeLists.txt 添加以下语句
+cmake_minimum_required(VERSION 3.16)
+include($ENV{IDF_PATH}/tools/cmake/project.cmake)
+
+set(EXTRA_COMPONENT_DIRS "./NewFloder")  // 添加的这句
+
+project(your_project_name)
+
+4. 在main.c添加引用，首先要先定义new.h，然后idf.py build 不报错即可
+
+5. 引用esp32内部文件 比如driver里的uart/gpio，报找不到文件错误
+    解决办法：修改同目录下CMakeLists.txt  添加driver的语句
+    idf_component_register(SRCS "sdk.c" "pack_utils.c" "model485.c"
+                    INCLUDE_DIRS "." REQUIRES driver)
+    idf.py fullclean
+    idf.py set-target esp32se
+    idf.py build 即可

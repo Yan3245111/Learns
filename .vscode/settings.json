@@ -1,0 +1,11 @@
+{
+  "idf.currentSetup": "C:/Espressif/frameworks/esp-idf-v5.5.4-3/",
+  "idf.customExtraVars": {},
+  "clangd.path": "C:\\Espressif\\tools\\esp-clang\\esp-19.1.2_20250312\\esp-clang\\bin\\clangd.exe",
+  "clangd.arguments": [
+    "--background-index",
+    "--query-driver=**",
+    "--compile-commands-dir=d:\\code\\Learns\\build"
+  ],
+  "cmake.sourceDirectory": "D:/code/Learns/vscode开发esp工程/hello"
+}
