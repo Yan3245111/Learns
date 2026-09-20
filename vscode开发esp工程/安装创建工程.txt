@@ -92,3 +92,12 @@ project(your_project_name)
     idf.py fullclean
     idf.py set-target esp32se
     idf.py build 即可
+
+6. 添加ws2811B led控制脚本
+    idf.py add-dependency "espressif/led_strip>=3.0.0"
+
+    在同级目录下CMakeLists.txt 添加 PRIV_REQUIRES led_strip （别的依赖文件也一样如此操作）
+    然后执行
+    idf.py fullclean
+    idf.py reconfigure
+    idf.py build
