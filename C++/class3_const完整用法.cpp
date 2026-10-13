@@ -14,7 +14,7 @@ void testCode() {
     int a = 10;
 
     const int b = 10;
-    // b = 20;  // error：a不可更改
+    // b = 20;  // error：b不可更改
 
     const int* a1 = &a;
     // *a1 = 20;  // error: *a1不可变 a1地址可以 

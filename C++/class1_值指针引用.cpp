@@ -4,7 +4,7 @@ using namespace std;
 
 /*
 引用：必须初始化，不能为空，不能改绑，指针可以
-引用不占独立内存，指针式独立变量
+引用不占独立内存，指针是独立变量
 引用更安全，指针更灵活
 
 小类型int，double用值传递
@@ -20,7 +20,6 @@ void testCode1(int a) {
 void testCode2(int& a) {
     a = 100;
 }
-
 
 // 传递的是指针，所以会改变原变量的值
 void testCode3(int* a) {

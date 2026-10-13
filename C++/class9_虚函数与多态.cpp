@@ -92,6 +92,7 @@ int main() {
     Rectangle rectangle(3, 5);
     printArea(circle);
     printArea(rectangle);
+    double perimeter = circle.perimeter();
     cout << "Perimeter: " << circle.perimeter() << endl;
     cout << "Perimeter: " << rectangle.perimeter() << endl;
 }

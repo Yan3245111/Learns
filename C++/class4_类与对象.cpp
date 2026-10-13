@@ -69,5 +69,6 @@ int main() {
     MyString s3("world");
     s3 = s1;
     cout << s3.getData() << endl;
+
     return 0;
 }
