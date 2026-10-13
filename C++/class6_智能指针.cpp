@@ -27,7 +27,6 @@ void unique_ptrTest() {
     cout << *p2 << endl;
 }
 
-
 void shared_ptrTest() {
     shared_ptr<int> p = make_shared<int>(10);
     shared_ptr<int> p2 = p;  // 拷贝，计数器变成2
@@ -36,7 +35,6 @@ void shared_ptrTest() {
     p.reset();  // 释放内存，计数器变成1
     cout << p2.use_count() << endl;
 }
-
 
 void weak_ptrTest() {
     cout << "weak_ptrTest" << endl;
@@ -53,7 +51,6 @@ void weak_ptrTest() {
         cout << "对象已销毁" << endl;
     }
 }
-
 
 struct Resource {
     Resource() {
