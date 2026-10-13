@@ -1,0 +1,2 @@
+idf_component_register(SRCS "led.c" "robot485.c" "sdk.c" "pack_utils.c" "model485.c" "robot485.c" "led.c" "nvs_storage.c"
+                    INCLUDE_DIRS "." REQUIRES driver PRIV_REQUIRES led_strip PRIV_REQUIRES nvs_flash)
